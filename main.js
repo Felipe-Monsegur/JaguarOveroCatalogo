@@ -37,7 +37,6 @@ const arayproductos = [{
 
 ];
 
-
 const DOMitems = document.getElementById('items');
 
 
@@ -69,10 +68,11 @@ function renderizarProductos() {
         miNodoDescripcion.classList.add('descripcionProducto'); // Agregar la clase aquí
         miNodoDescripcion.textContent = info.descripcion;;
 
-  
+        
         miNodoInfo.appendChild(miNodoNombre);
         miNodoInfo.appendChild(miNodoDescripcion);
-  
+        miNodoInfo.appendChild(miNodoPrecio);
+        miNodoInfo.appendChild(miNodoBoton);
 
         miNodo.appendChild(miNodoImagen);
         miNodo.appendChild(miNodoInfo);
@@ -168,7 +168,23 @@ Productos.forEach(producto => {
 })
 }
 
-
+/* animacion
+*/
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // Para que la animación se aplique solo una vez
+      }
+    });
+  });
+  
+  document.addEventListener('DOMContentLoaded', () => {
+    const productos = document.querySelectorAll('.producto');
+    productos.forEach(producto => {
+      observer.observe(producto);
+    });
+  });
 
 
 // Eventos
