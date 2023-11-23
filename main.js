@@ -5,7 +5,6 @@ const arayproductos = [{
     descripcion: "Asiento 1.00 x 0.40 / Respaldo 0.50 / Altura Final 0.90",
     id: 1,
 },
-
 {
     nombre: 'Silla matera “Lion”',
     img: "./assets/img/Silla matera.jpg",
@@ -71,8 +70,6 @@ function renderizarProductos() {
         
         miNodoInfo.appendChild(miNodoNombre);
         miNodoInfo.appendChild(miNodoDescripcion);
-        miNodoInfo.appendChild(miNodoPrecio);
-        miNodoInfo.appendChild(miNodoBoton);
 
         miNodo.appendChild(miNodoImagen);
         miNodo.appendChild(miNodoInfo);
